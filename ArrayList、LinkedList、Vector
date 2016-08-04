@@ -1,0 +1,13 @@
+Java基础之集合List-ArrayList,LinkedList,Vector底层实现
+  1.ArrayList底层数组实现，数组类型为Objet。
+  2.jdk6采用Array.copyOf()方法生成新的数组，如果是jdk5，采用System.arraycopy()方法。
+  3.List list = new ArrayList(),底层生成长度为10的数组。
+  4.ArrayList,Vector 底层采用数组实现。
+  5.ArrayList的方法都不是同步，Vector的方法都是同步的。
+  6.LinkedList 双向循环列表。
+  7.ArrayList 查询速度快，增加和删除（非最后一个节点）操作非常慢（本质上由数组的特性决定）。
+  8.LinkedList 查询速度非常慢，增加和删除非常快（本质上由双向循环列表决定）。
+  
+参考博客：
+
+http://blog.csdn.net/sundenskyqq/article/details/27630179
