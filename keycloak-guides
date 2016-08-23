@@ -1,10 +1,15 @@
 1.启动 keycloak
 	G:\keycloak-2.1.0.CR1\bin>standalone.bat -Djboss.socket.binding.port-offset=100
-	
-2.启动 WildFly
+	访问：http://localhost:8180/auth 创建账户：supervisor,密码：123
+	以supervisor登录：http://localhost:8180/auth/admin
+	创建realm --> kunlun-eSignatue,User --> Chris Zhao,邮箱chris.zhao@shijinet.com.cn,及时更改密码
+	Sign-Out以Chris重新登录:http://localhost:8180/auth/realms/kunlun-eSignature/account/
+2.Install the Client Adapter
+	参考：https://keycloak.gitbooks.io/getting-started-tutorials/content/v/2.1/topics/secure-jboss-app/install-client-adapter.html
+3.启动 WildFly
 	F:\wildfly-10.0.0.Final\bin>standalone.bat
 	
-3.部署
+4.部署
 	1).F:\kunlun\kunlun-identity>mvn clean wildfly:deploy
 	成功后可登录。。有弹框
 	2).创建client
@@ -19,7 +24,7 @@
 			<resource>kunlun-identity</resource>
 		</secure-deployment>
 		重启服务：F:\wildfly-10.0.0.Final\bin>standalone.bat
-4.登录
+5.登录
 	http://localhost:8180/auth/realms/的用户：
 	用户名：chris.zhao@shijinet.com.cn
 	密码：123
