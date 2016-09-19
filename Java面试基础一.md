@@ -1,4 +1,4 @@
-## Java面试基础（推荐书籍Java Programming Interview Exposed）
+## Java面试基础一（推荐书籍Java Programming Interview Exposed）
   1.  String、StringBuilder、StringBuffer的区别.<br/>
     &nbsp;String:不可变对象,String s = &nbsp;"123";s=s+4;//结果是"1234",实际JVM创建了两个对象,第一个对象被赋值"123",第二个对象执行s+4后第一个对象会被GC.<br/>
     &nbsp;StringBuilder和StringBuffer:对象可变,StringBuiler sb = new &nbsp;StringBuilder("123").append("4");//实际创建了一个对象.因此执行速度上也比String快很多.<br/>
@@ -17,6 +17,20 @@
     &nbsp;synchronized(obj){<br/>
       &nbsp;&nbsp;obj.notifyAll();<br/>
     &nbsp;}<br/>
-  4.  
-    
-    
+  4.  如何强化(线程安全的使用单例)Singleton.<br/>
+    &nbsp;1) 枚举Enum：<br/>
+      &nbsp;&nbsp;public enum Singleton{ <br/>
+        &nbsp;&nbsp;&nbsp;INSTANCE;<br/>
+        &nbsp;&nbsp;public void methodA(){...}<br/>
+      &nbsp;&nbsp;}    <br/>
+    &nbsp;2) final静态变量：<br/>
+      &nbsp;private Sigleton(){}<br/>
+      &nbsp;public static final Singleton INSTANCE = new Singleton();<br/>
+      &nbsp;public void methodB(){...}<br/>
+    &nbsp;3) 静态方法：<br/>
+      &nbsp;private static final Singleton INSTANCE = new Singleton();<br/>
+      &nbsp;private Sigleton(){}<br/>
+      &nbsp;public static Singleton getInstance(){<br/>
+        &nbsp;&nbsp;&nbsp; return INSTANCE;<br/>
+      &nbsp;}<br/>
+      &nbsp;public void methodC(){...}<br/>
